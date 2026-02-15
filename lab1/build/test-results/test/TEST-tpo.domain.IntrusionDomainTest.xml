@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tpo.domain.IntrusionDomainTest" tests="15" skipped="0" failures="0" errors="0" timestamp="2026-02-15T14:05:22.704Z" hostname="fedora" time="0.085">
+  <properties/>
+  <testcase name="opensAllDoorsWhenIntrudersBurstIn()" classname="tpo.domain.IntrusionDomainTest" time="0.036"/>
+  <testcase name="failsWhenIntruderListContainsNull()" classname="tpo.domain.IntrusionDomainTest" time="0.003"/>
+  <testcase name="affiliationCapturedAsCruxvanUniversity()" classname="tpo.domain.IntrusionDomainTest" time="0.002"/>
+  <testcase name="failsWhenIntruderListEmpty()" classname="tpo.domain.IntrusionDomainTest" time="0.004"/>
+  <testcase name="failsWhenRoomHasNoDoors()" classname="tpo.domain.IntrusionDomainTest" time="0.003"/>
+  <testcase name="roomInitiallyContainsOnlyDefenders()" classname="tpo.domain.IntrusionDomainTest" time="0.002"/>
+  <testcase name="failsWhenIntruderListIsNull()" classname="tpo.domain.IntrusionDomainTest" time="0.002"/>
+  <testcase name="intrudersJoinOccupantsAfterBurstingIn()" classname="tpo.domain.IntrusionDomainTest" time="0.001"/>
+  <testcase name="failsWhenRoomIsNull()" classname="tpo.domain.IntrusionDomainTest" time="0.002"/>
+  <testcase name="intrudersRemainAngry()" classname="tpo.domain.IntrusionDomainTest" time="0.001"/>
+  <testcase name="defendersArePushedAside()" classname="tpo.domain.IntrusionDomainTest" time="0.001"/>
+  <testcase name="intrudersWearFadedBlueRobesWithBelts()" classname="tpo.domain.IntrusionDomainTest" time="0.001"/>
+  <testcase name="failsWhenDefenderListIsNull()" classname="tpo.domain.IntrusionDomainTest" time="0.001"/>
+  <testcase name="failsWhenDefenderListEmpty()" classname="tpo.domain.IntrusionDomainTest" time="0.001"/>
+  <testcase name="raisesNoiseOnTrigger()" classname="tpo.domain.IntrusionDomainTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
