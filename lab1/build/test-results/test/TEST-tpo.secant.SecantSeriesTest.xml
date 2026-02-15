@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tpo.secant.SecantSeriesTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-02-15T15:25:25.167Z" hostname="fedora" time="0.006">
+  <properties/>
+  <testcase name="Неверные параметры отклоняются" classname="tpo.secant.SecantSeriesTest" time="0.002"/>
+  <testcase name="sec(0) = 1" classname="tpo.secant.SecantSeriesTest" time="0.001"/>
+  <testcase name="Точность улучшается при большем числе членов" classname="tpo.secant.SecantSeriesTest" time="0.0"/>
+  <testcase name="Функция чётная: sec(x)=sec(-x)" classname="tpo.secant.SecantSeriesTest" time="0.001"/>
+  <testcase name="Сходимость к 1/cos(x) при малых x" classname="tpo.secant.SecantSeriesTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

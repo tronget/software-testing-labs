@@ -22,14 +22,6 @@ public class IntrusionEvent {
         }
     }
 
-    public List<Person> getIntruders() {
-        return Collections.unmodifiableList(intruders);
-    }
-
-    public List<Person> getDefenders() {
-        return Collections.unmodifiableList(defenders);
-    }
-
     public void trigger() {
         noiseRaised = true;
         for (Door door : room.getDoors()) {

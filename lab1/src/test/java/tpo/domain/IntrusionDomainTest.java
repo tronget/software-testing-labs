@@ -90,6 +90,22 @@ class IntrusionDomainTest {
     }
 
     @Test
+    @DisplayName("Открытая дверь может закрываться")
+    void openDoorCanBeClosed() {
+        Scenario scenario = createScenario();
+        scenario.event().trigger();
+
+        assertEquals(DoorState.OPEN, scenario.leftDoor().getState());
+        assertEquals(DoorState.OPEN, scenario.leftDoor().getState());
+
+        scenario.leftDoor().close();
+        scenario.rightDoor().close();
+
+        assertEquals(DoorState.CLOSED, scenario.leftDoor().getState());
+        assertEquals(DoorState.CLOSED, scenario.rightDoor().getState());
+    }
+
+    @Test
     @DisplayName("Нарушители распахивают все двери")
     void opensAllDoorsWhenIntrudersBurstIn() {
         Scenario scenario = createScenario();
