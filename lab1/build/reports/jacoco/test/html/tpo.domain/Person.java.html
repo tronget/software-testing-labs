@@ -11,10 +11,15 @@ public class Person {
     @NonNull private final Mood mood;
     @NonNull private final Role role;
     @NonNull private final Attire attire;
+    private boolean attemptedToBlock;
     private boolean pushedAside;
 
+    public void attemptToBlock() {
+<span class="fc" id="L18">        this.attemptedToBlock = true;</span>
+<span class="fc" id="L19">    }</span>
+
     public void pushAside() {
-<span class="nc" id="L17">        this.pushedAside = true;</span>
-<span class="nc" id="L18">    }</span>
+<span class="fc" id="L22">        this.pushedAside = true;</span>
+<span class="fc" id="L23">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

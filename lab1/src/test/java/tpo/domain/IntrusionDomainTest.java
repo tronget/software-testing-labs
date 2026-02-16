@@ -96,7 +96,7 @@ class IntrusionDomainTest {
         scenario.event().trigger();
 
         assertEquals(DoorState.OPEN, scenario.leftDoor().getState());
-        assertEquals(DoorState.OPEN, scenario.leftDoor().getState());
+        assertEquals(DoorState.OPEN, scenario.rightDoor().getState());
 
         scenario.leftDoor().close();
         scenario.rightDoor().close();
@@ -110,6 +110,7 @@ class IntrusionDomainTest {
     void opensAllDoorsWhenIntrudersBurstIn() {
         Scenario scenario = createScenario();
         scenario.event().trigger();
+
 
         assertEquals(DoorState.OPEN, scenario.leftDoor().getState());
         assertEquals(DoorState.OPEN, scenario.rightDoor().getState());
@@ -142,6 +143,16 @@ class IntrusionDomainTest {
 
         assertTrue(scenario.firstDefender().isPushedAside());
         assertTrue(scenario.secondDefender().isPushedAside());
+    }
+
+    @Test
+    @DisplayName("Лакеи тщетно пытаются преградить путь")
+    void defendersAttemptToBlockPath() {
+        Scenario scenario = createScenario();
+        scenario.event().trigger();
+
+        assertTrue(scenario.firstDefender().isAttemptedToBlock());
+        assertTrue(scenario.secondDefender().isAttemptedToBlock());
     }
 
     @Test

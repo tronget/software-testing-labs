@@ -8,17 +8,17 @@ public class BubbleSortTrace {
     private final int[] sorted;
     private final List&lt;TracePoint&gt; points;
 
-<span class="nc" id="L11">    public BubbleSortTrace(int[] sorted, List&lt;TracePoint&gt; points) {</span>
-<span class="nc" id="L12">        this.sorted = sorted.clone();</span>
-<span class="nc" id="L13">        this.points = new ArrayList&lt;&gt;(points);</span>
-<span class="nc" id="L14">    }</span>
+<span class="fc" id="L11">    public BubbleSortTrace(int[] sorted, List&lt;TracePoint&gt; points) {</span>
+<span class="fc" id="L12">        this.sorted = sorted.clone();</span>
+<span class="fc" id="L13">        this.points = new ArrayList&lt;&gt;(points);</span>
+<span class="fc" id="L14">    }</span>
 
     public int[] getSorted() {
-<span class="nc" id="L17">        return sorted.clone();</span>
+<span class="fc" id="L17">        return sorted.clone();</span>
     }
 
     public List&lt;TracePoint&gt; getPoints() {
-<span class="nc" id="L21">        return Collections.unmodifiableList(points);</span>
+<span class="fc" id="L21">        return Collections.unmodifiableList(points);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

@@ -17,19 +17,19 @@ public class Room {
     private final List&lt;Person&gt; occupants = new ArrayList&lt;&gt;();
 
     public void addDoor(Door door) {
-<span class="nc" id="L20">        doors.add(Objects.requireNonNull(door));</span>
-<span class="nc" id="L21">    }</span>
+<span class="fc" id="L20">        doors.add(Objects.requireNonNull(door));</span>
+<span class="fc" id="L21">    }</span>
 
     public void addOccupant(Person person) {
-<span class="nc" id="L24">        occupants.add(Objects.requireNonNull(person));</span>
-<span class="nc" id="L25">    }</span>
+<span class="fc" id="L24">        occupants.add(Objects.requireNonNull(person));</span>
+<span class="fc" id="L25">    }</span>
 
     public List&lt;Door&gt; getDoors() {
-<span class="nc" id="L28">        return Collections.unmodifiableList(doors);</span>
+<span class="fc" id="L28">        return Collections.unmodifiableList(doors);</span>
     }
 
     public List&lt;Person&gt; getOccupants() {
-<span class="nc" id="L32">        return Collections.unmodifiableList(occupants);</span>
+<span class="fc" id="L32">        return Collections.unmodifiableList(occupants);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

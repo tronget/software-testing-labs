@@ -3,32 +3,32 @@
 import java.util.ArrayList;
 import java.util.List;
 
-<span class="nc" id="L6">public class BubbleSorter {</span>
+<span class="fc" id="L6">public class BubbleSorter {</span>
     public BubbleSortTrace sortWithTrace(int[] input) {
-<span class="nc" id="L8">        int[] data = input.clone();</span>
-<span class="nc" id="L9">        List&lt;TracePoint&gt; trace = new ArrayList&lt;&gt;();</span>
-<span class="nc" id="L10">        int n = data.length;</span>
-<span class="nc bnc" id="L11" title="All 2 branches missed.">        for (int i = 0; i &lt; n - 1; i++) {</span>
-<span class="nc" id="L12">            trace.add(TracePoint.START_PASS);</span>
-<span class="nc" id="L13">            boolean swapped = false;</span>
-<span class="nc bnc" id="L14" title="All 2 branches missed.">            for (int j = 0; j &lt; n - 1 - i; j++) {</span>
-<span class="nc" id="L15">                trace.add(TracePoint.COMPARE);</span>
-<span class="nc bnc" id="L16" title="All 2 branches missed.">                if (data[j] &gt; data[j + 1]) {</span>
-<span class="nc" id="L17">                    int temp = data[j];</span>
-<span class="nc" id="L18">                    data[j] = data[j + 1];</span>
-<span class="nc" id="L19">                    data[j + 1] = temp;</span>
-<span class="nc" id="L20">                    swapped = true;</span>
-<span class="nc" id="L21">                    trace.add(TracePoint.SWAP);</span>
+<span class="fc" id="L8">        int[] data = input.clone();</span>
+<span class="fc" id="L9">        List&lt;TracePoint&gt; trace = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L10">        int n = data.length;</span>
+<span class="fc bfc" id="L11" title="All 2 branches covered.">        for (int i = 0; i &lt; n - 1; i++) {</span>
+<span class="fc" id="L12">            trace.add(TracePoint.START_PASS);</span>
+<span class="fc" id="L13">            boolean swapped = false;</span>
+<span class="fc bfc" id="L14" title="All 2 branches covered.">            for (int j = 0; j &lt; n - 1 - i; j++) {</span>
+<span class="fc" id="L15">                trace.add(TracePoint.COMPARE);</span>
+<span class="fc bfc" id="L16" title="All 2 branches covered.">                if (data[j] &gt; data[j + 1]) {</span>
+<span class="fc" id="L17">                    int temp = data[j];</span>
+<span class="fc" id="L18">                    data[j] = data[j + 1];</span>
+<span class="fc" id="L19">                    data[j + 1] = temp;</span>
+<span class="fc" id="L20">                    swapped = true;</span>
+<span class="fc" id="L21">                    trace.add(TracePoint.SWAP);</span>
                 }
             }
-<span class="nc" id="L24">            trace.add(TracePoint.PASS_END);</span>
-<span class="nc bnc" id="L25" title="All 2 branches missed.">            if (!swapped) {</span>
-<span class="nc" id="L26">                trace.add(TracePoint.EARLY_EXIT);</span>
-<span class="nc" id="L27">                break;</span>
+<span class="fc" id="L24">            trace.add(TracePoint.PASS_END);</span>
+<span class="fc bfc" id="L25" title="All 2 branches covered.">            if (!swapped) {</span>
+<span class="fc" id="L26">                trace.add(TracePoint.EARLY_EXIT);</span>
+<span class="fc" id="L27">                break;</span>
             }
         }
-<span class="nc" id="L30">        trace.add(TracePoint.COMPLETE);</span>
-<span class="nc" id="L31">        return new BubbleSortTrace(data, trace);</span>
+<span class="fc" id="L30">        trace.add(TracePoint.COMPLETE);</span>
+<span class="fc" id="L31">        return new BubbleSortTrace(data, trace);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

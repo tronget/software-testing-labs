@@ -2,17 +2,17 @@
 
 <span class="fc" id="L3">public class SecantSeries {</span>
     public double approximate(double x, double epsilon, int maxTerms) {
-<span class="pc bpc" id="L5" title="1 of 2 branches missed.">        if (epsilon &lt;= 0) {</span>
-<span class="nc" id="L6">            throw new IllegalArgumentException(&quot;epsilon must be positive&quot;);</span>
+<span class="fc bfc" id="L5" title="All 2 branches covered.">        if (epsilon &lt;= 0) {</span>
+<span class="fc" id="L6">            throw new IllegalArgumentException(&quot;epsilon must be positive&quot;);</span>
         }
-<span class="pc bpc" id="L8" title="1 of 2 branches missed.">        if (maxTerms &lt; 1) {</span>
-<span class="nc" id="L9">            throw new IllegalArgumentException(&quot;maxTerms must be at least 1&quot;);</span>
+<span class="fc bfc" id="L8" title="All 2 branches covered.">        if (maxTerms &lt; 1) {</span>
+<span class="fc" id="L9">            throw new IllegalArgumentException(&quot;maxTerms must be at least 1&quot;);</span>
         }
 <span class="fc" id="L11">        double[] eulerNumbers = computeEvenEulerNumbers(maxTerms);</span>
 <span class="fc" id="L12">        double sum = 0.0;</span>
 <span class="fc" id="L13">        double power = 1.0; // x^(2n)</span>
 <span class="fc" id="L14">        double factorial = 1.0; // (2n)!</span>
-<span class="pc bpc" id="L15" title="1 of 2 branches missed.">        for (int n = 0; n &lt; maxTerms; n++) {</span>
+<span class="fc bfc" id="L15" title="All 2 branches covered.">        for (int n = 0; n &lt; maxTerms; n++) {</span>
 <span class="fc bfc" id="L16" title="All 2 branches covered.">            if (n &gt; 0) {</span>
 <span class="fc" id="L17">                power *= x * x;</span>
 <span class="fc" id="L18">                int m = 2 * n;</span>

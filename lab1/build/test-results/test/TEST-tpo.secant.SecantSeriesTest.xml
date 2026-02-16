@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="tpo.secant.SecantSeriesTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-02-16T06:16:22.965Z" hostname="fedora" time="0.689">
+<testsuite name="tpo.secant.SecantSeriesTest" tests="19" skipped="0" failures="0" errors="0" timestamp="2026-02-16T07:44:20.071Z" hostname="fedora" time="0.113">
   <properties/>
-  <testcase name="Значение близкое к границе сходимости вычисляется корректно" classname="tpo.secant.SecantSeriesTest" time="0.689"/>
+  <testcase name="Неверные параметры отклоняются" classname="tpo.secant.SecantSeriesTest" time="0.0"/>
+  <testcase name="sec(0) = 1" classname="tpo.secant.SecantSeriesTest" time="0.0"/>
+  <testcase name="Точность улучшается при увеличении числа членов ряда" classname="tpo.secant.SecantSeriesTest" time="0.001"/>
+  <testcase name="Вычисление у границы сходимости |x| &lt; π/2 остаётся точным" classname="tpo.secant.SecantSeriesTest" time="0.004"/>
+  <testcase name="sec(0.1) ≈ 1.0050209184004553" classname="tpo.secant.SecantSeriesTest" time="0.02"/>
+  <testcase name="sec(0.4) ≈ 1.0857044283832387" classname="tpo.secant.SecantSeriesTest" time="0.002"/>
+  <testcase name="sec(0.5) ≈ 1.139493927324549" classname="tpo.secant.SecantSeriesTest" time="0.002"/>
+  <testcase name="sec(0.7) ≈ 1.3074592597335937" classname="tpo.secant.SecantSeriesTest" time="0.003"/>
+  <testcase name="sec(1.0) ≈ 1.8508157176809255" classname="tpo.secant.SecantSeriesTest" time="0.002"/>
+  <testcase name="sec(1.4) ≈ 5.883490084827342" classname="tpo.secant.SecantSeriesTest" time="0.002"/>
+  <testcase name="sec(-0.4) ≈ 1.0857044283832387" classname="tpo.secant.SecantSeriesTest" time="0.002"/>
+  <testcase name="sec(-0.7) ≈ 1.3074592597335937" classname="tpo.secant.SecantSeriesTest" time="0.002"/>
+  <testcase name="Чётность sec(x): x=0.1" classname="tpo.secant.SecantSeriesTest" time="0.002"/>
+  <testcase name="Чётность sec(x): x=0.4" classname="tpo.secant.SecantSeriesTest" time="0.001"/>
+  <testcase name="Чётность sec(x): x=0.7" classname="tpo.secant.SecantSeriesTest" time="0.0"/>
+  <testcase name="Чётность sec(x): x=1.0" classname="tpo.secant.SecantSeriesTest" time="0.001"/>
+  <testcase name="Чётность sec(x): x=1.4" classname="tpo.secant.SecantSeriesTest" time="0.001"/>
+  <testcase name="Вне сходимости: x=1.7" classname="tpo.secant.SecantSeriesTest" time="0.003"/>
+  <testcase name="Вне сходимости: x=2.0" classname="tpo.secant.SecantSeriesTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

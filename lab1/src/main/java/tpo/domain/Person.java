@@ -11,7 +11,12 @@ public class Person {
     @NonNull private final Mood mood;
     @NonNull private final Role role;
     @NonNull private final Attire attire;
+    private boolean attemptedToBlock;
     private boolean pushedAside;
+
+    public void attemptToBlock() {
+        this.attemptedToBlock = true;
+    }
 
     public void pushAside() {
         this.pushedAside = true;

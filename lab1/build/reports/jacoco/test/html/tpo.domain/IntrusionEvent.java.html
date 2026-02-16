@@ -13,38 +13,39 @@ public class IntrusionEvent {
     private final List&lt;Person&gt; defenders;
     @Getter private boolean noiseRaised;
 
-<span class="nc" id="L16">    public IntrusionEvent(Room room, List&lt;Person&gt; intruders, List&lt;Person&gt; defenders) {</span>
-<span class="nc" id="L17">        this.room = Objects.requireNonNull(room);</span>
-<span class="nc" id="L18">        this.intruders = copyValidated(intruders, &quot;intruders&quot;);</span>
-<span class="nc" id="L19">        this.defenders = copyValidated(defenders, &quot;defenders&quot;);</span>
-<span class="nc bnc" id="L20" title="All 2 branches missed.">        if (room.getDoors().isEmpty()) {</span>
-<span class="nc" id="L21">            throw new IllegalArgumentException(&quot;room must have at least one door&quot;);</span>
+<span class="fc" id="L16">    public IntrusionEvent(Room room, List&lt;Person&gt; intruders, List&lt;Person&gt; defenders) {</span>
+<span class="fc" id="L17">        this.room = Objects.requireNonNull(room);</span>
+<span class="fc" id="L18">        this.intruders = copyValidated(intruders, &quot;intruders&quot;);</span>
+<span class="fc" id="L19">        this.defenders = copyValidated(defenders, &quot;defenders&quot;);</span>
+<span class="fc bfc" id="L20" title="All 2 branches covered.">        if (room.getDoors().isEmpty()) {</span>
+<span class="fc" id="L21">            throw new IllegalArgumentException(&quot;room must have at least one door&quot;);</span>
         }
-<span class="nc" id="L23">    }</span>
+<span class="fc" id="L23">    }</span>
 
     public void trigger() {
-<span class="nc" id="L26">        noiseRaised = true;</span>
-<span class="nc bnc" id="L27" title="All 2 branches missed.">        for (Door door : room.getDoors()) {</span>
-<span class="nc" id="L28">            door.open();</span>
-<span class="nc" id="L29">        }</span>
-<span class="nc bnc" id="L30" title="All 2 branches missed.">        for (Person intruder : intruders) {</span>
-<span class="nc" id="L31">            room.addOccupant(intruder);</span>
-<span class="nc" id="L32">        }</span>
-<span class="nc bnc" id="L33" title="All 2 branches missed.">        for (Person defender : defenders) {</span>
-<span class="nc" id="L34">            defender.pushAside();</span>
-<span class="nc" id="L35">        }</span>
-<span class="nc" id="L36">    }</span>
+<span class="fc" id="L26">        noiseRaised = true;</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">        for (Door door : room.getDoors()) {</span>
+<span class="fc" id="L28">            door.open();</span>
+<span class="fc" id="L29">        }</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">        for (Person intruder : intruders) {</span>
+<span class="fc" id="L31">            room.addOccupant(intruder);</span>
+<span class="fc" id="L32">        }</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">        for (Person defender : defenders) {</span>
+<span class="fc" id="L34">            defender.attemptToBlock();</span>
+<span class="fc" id="L35">            defender.pushAside();</span>
+<span class="fc" id="L36">        }</span>
+<span class="fc" id="L37">    }</span>
 
     private static List&lt;Person&gt; copyValidated(List&lt;Person&gt; source, String name) {
-<span class="nc" id="L39">        Objects.requireNonNull(source, name + &quot; list is null&quot;);</span>
-<span class="nc bnc" id="L40" title="All 2 branches missed.">        if (source.isEmpty()) {</span>
-<span class="nc" id="L41">            throw new IllegalArgumentException(name + &quot; list is empty&quot;);</span>
+<span class="fc" id="L40">        Objects.requireNonNull(source, name + &quot; list is null&quot;);</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">        if (source.isEmpty()) {</span>
+<span class="fc" id="L42">            throw new IllegalArgumentException(name + &quot; list is empty&quot;);</span>
         }
-<span class="nc" id="L43">        List&lt;Person&gt; copy = new ArrayList&lt;&gt;(source.size());</span>
-<span class="nc bnc" id="L44" title="All 2 branches missed.">        for (Person p : source) {</span>
-<span class="nc" id="L45">            copy.add(Objects.requireNonNull(p, name + &quot; contains null&quot;));</span>
-<span class="nc" id="L46">        }</span>
-<span class="nc" id="L47">        return copy;</span>
+<span class="fc" id="L44">        List&lt;Person&gt; copy = new ArrayList&lt;&gt;(source.size());</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">        for (Person p : source) {</span>
+<span class="fc" id="L46">            copy.add(Objects.requireNonNull(p, name + &quot; contains null&quot;));</span>
+<span class="fc" id="L47">        }</span>
+<span class="fc" id="L48">        return copy;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

@@ -31,6 +31,7 @@ public class IntrusionEvent {
             room.addOccupant(intruder);
         }
         for (Person defender : defenders) {
+            defender.attemptToBlock();
             defender.pushAside();
         }
     }
