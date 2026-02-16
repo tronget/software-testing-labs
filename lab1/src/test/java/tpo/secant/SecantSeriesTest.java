@@ -37,7 +37,7 @@ class SecantSeriesTest {
     void accuracyImprovesWithMoreTerms() {
         double x = 0.7;
         double expected = 1.0 / Math.cos(x);
-        double coarse = series.approximate(x, 1e-2, 5);
+        double coarse = series.approximate(x, 1e-12, 5);
         double fine = series.approximate(x, 1e-12, 15);
         assertTrue(Math.abs(fine - expected) < Math.abs(coarse - expected));
     }
@@ -47,5 +47,25 @@ class SecantSeriesTest {
     void rejectsInvalidParameters() {
         assertThrows(IllegalArgumentException.class, () -> series.approximate(0.1, 0.0, 5));
         assertThrows(IllegalArgumentException.class, () -> series.approximate(0.1, 1e-6, 0));
+    }
+
+    @Test
+    @DisplayName("Значение близкое к границе сходимости вычисляется корректно")
+    void worksNearConvergenceBoundary() {
+        double x = 1.4;
+        double expected = 1.0 / Math.cos(x);
+        double actual = series.approximate(x, 1e-12, 100);
+        assertEquals(expected, actual, 1e-5);
+    }
+
+    @Test
+    @DisplayName("Завершается корректно вне области сходимости (|x| >= π/2)")
+    void handlesDivergentRegionGracefully() {
+        double x = Math.PI / 2 + 0.1;
+        assertDoesNotThrow(() -> {
+            double result = series.approximate(x, 1e-15, 20);
+            assertFalse(Double.isNaN(result) || Double.isInfinite(result),
+                    "Result should be finite even if inaccurate");
+        });
     }
 }
