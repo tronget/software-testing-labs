@@ -10,8 +10,8 @@ public class SecantSeries {
         }
         double[] eulerNumbers = computeEvenEulerNumbers(maxTerms);
         double sum = 0.0;
-        double power = 1.0; // x^(2n)
-        double factorial = 1.0; // (2n)!
+        double power = 1.0;
+        double factorial = 1.0;
         for (int n = 0; n < maxTerms; n++) {
             if (n > 0) {
                 power *= x * x;

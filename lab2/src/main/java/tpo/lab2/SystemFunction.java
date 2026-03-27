@@ -1,13 +1,9 @@
 package tpo.lab2;
 
-/**
- * Система функций
- * При x <= 0: (((((((((cot(x) / sin(x)) + sec(x)) / cot(x)) / tan(x)) / tan(x)) - cot(x)) - tan(x)) * sin(x)) / 
- *             ((tan(x) ^ 2) - (sec(x) * ((tan(x) - (tan(x) + cos(x))) - csc(x))))
- * 
- * При x > 0:  (((((log_2(x) + log_3(x)) + log_5(x)) / log_3(x)) + (ln(x) - log_2(x))) * 
- *             ((log_2(x) * (log_3(x) ^ 3)) * log_3(x)))
- */
+import tpo.lab2.log.Ln;
+import tpo.lab2.log.Log;
+import tpo.lab2.trigonometric.*;
+
 public class SystemFunction {
     private Sin sin;
     private Cos cos;
@@ -18,7 +14,7 @@ public class SystemFunction {
     private Log log;
     private Ln ln;
 
-    public SystemFunction(Sin sin, Cos cos, Tan tan, Cot cot, Sec sec, Csc csc, Log log, Ln ln) {
+    public SystemFunction(Sin sin, Cos cos, Tan tan, Cot cot, Sec sec, Csc csc, Ln ln, Log log) {
         this.sin = sin;
         this.cos = cos;
         this.tan = tan;
@@ -29,9 +25,7 @@ public class SystemFunction {
         this.ln = ln;
     }
 
-    /**
-     * Вычисляет значение системной функции
-     */
+
     public double calculate(double x) {
         if (x <= 0) {
             return calculateForNegative(x);
@@ -40,11 +34,6 @@ public class SystemFunction {
         }
     }
 
-    /**
-     * Вычисляет систему для x <= 0:
-     * (((((((((cot(x) / sin(x)) + sec(x)) / cot(x)) / tan(x)) / tan(x)) - cot(x)) - tan(x)) * sin(x)) / 
-     * ((tan(x) ^ 2) - (sec(x) * ((tan(x) - (tan(x) + cos(x))) - csc(x))))
-     */
     private double calculateForNegative(double x) {
         double sinX = sin.calculate(x);
         double cosX = cos.calculate(x);
@@ -53,7 +42,6 @@ public class SystemFunction {
         double secX = sec.calculate(x);
         double cscX = csc.calculate(x);
 
-        // Числитель: (((((((((cot(x) / sin(x)) + sec(x)) / cot(x)) / tan(x)) / tan(x)) - cot(x)) - tan(x)) * sin(x))
         double numerator = cotX / sinX;
         numerator += secX;
         numerator /= cotX;
@@ -63,7 +51,6 @@ public class SystemFunction {
         numerator -= tanX;
         numerator *= sinX;
 
-        // Знаменатель: ((tan(x) ^ 2) - (sec(x) * ((tan(x) - (tan(x) + cos(x))) - csc(x))))
         double denominator = tanX * tanX;
         double inner = tanX - (tanX + cosX);
         inner -= cscX;
@@ -76,24 +63,17 @@ public class SystemFunction {
         return numerator / denominator;
     }
 
-    /**
-     * Вычисляет систему для x > 0:
-     * (((((log_2(x) + log_3(x)) + log_5(x)) / log_3(x)) + (ln(x) - log_2(x))) * 
-     * ((log_2(x) * (log_3(x) ^ 3)) * log_3(x)))
-     */
     private double calculateForPositive(double x) {
         double log2X = log.calculate(x, 2);
         double log3X = log.calculate(x, 3);
         double log5X = log.calculate(x, 5);
         double lnX = ln.calculate(x);
 
-        // Первая часть: (((((log_2(x) + log_3(x)) + log_5(x)) / log_3(x)) + (ln(x) - log_2(x)))
         double part1 = log2X + log3X;
         part1 += log5X;
         part1 /= log3X;
         part1 += (lnX - log2X);
 
-        // Вторая часть: ((log_2(x) * (log_3(x) ^ 3)) * log_3(x))
         double part2 = log2X * (log3X * log3X * log3X);
         part2 *= log3X;
 
