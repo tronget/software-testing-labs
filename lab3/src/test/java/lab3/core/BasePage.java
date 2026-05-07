@@ -2,6 +2,7 @@ package lab3.core;
 
 import java.time.Duration;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -31,6 +32,12 @@ public abstract class BasePage {
 
     protected void click(String xpath) {
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath))).click();
+    }
+
+    protected void clickByJs(String xpath) {
+        WebElement element = waitVisible(xpath);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", element);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
     }
 
     protected void type(String xpath, String text) {

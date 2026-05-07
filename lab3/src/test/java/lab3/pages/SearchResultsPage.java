@@ -1,6 +1,7 @@
 package lab3.pages;
 
 import lab3.core.BasePage;
+import lab3.core.TestData;
 import org.openqa.selenium.WebDriver;
 
 public class SearchResultsPage extends BasePage {
@@ -8,8 +9,10 @@ public class SearchResultsPage extends BasePage {
         super(driver);
     }
 
-    public boolean hasResults() {
-        return isVisible("//table//tr//td") || isVisible("//div[contains(@class,'result')]//table");
+    public boolean hasTranslate() {
+        String translatedWord = TestData.SEARCH_WORD_TRANSLATED;
+        String xpath = String.format("//table//tr//td[.//a[contains(normalize-space(.), '%s')] or contains(normalize-space(.), '%s')]", translatedWord, translatedWord);
+        return isVisible(xpath);
     }
 
     public boolean hasSuggestionsOrEmptyMessage() {

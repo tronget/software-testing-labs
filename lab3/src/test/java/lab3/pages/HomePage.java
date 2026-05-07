@@ -18,12 +18,12 @@ public class HomePage extends BasePage {
     }
 
     public void selectPopularEnglishRussian() {
-        click("//a[contains(normalize-space(.),'English') and contains(normalize-space(.),'Russian')]");
+        clickByJs("//a[@href='/m.exe?l1=1&l2=2']");
     }
 
     public void searchFor(String query) {
-        type("//input[(self::input or self::textarea) and (contains(@placeholder,'type word') or contains(@aria-label,'type word') or @type='search' or @type='text')][1]", query);
-        click("//button[normalize-space()='Search'] | //input[@type='submit' and (contains(@value,'Search') or contains(@value,'Поиск'))]");
+        type("//input[(self::input or self::textarea) and not(@type='hidden') and (@name='s' or @id='s' or contains(@placeholder,'type word') or contains(@aria-label,'type word') or @type='search' or @type='text')][1]", query);
+        clickByJs("//input[@type='submit' and (contains(@value,'Search') or contains(@value,'Поиск') or contains(@value,'Иск'))] | //button[contains(normalize-space(.),'Search') or contains(normalize-space(.),'Поиск')]");
     }
 
     public ContactsPage goToContacts() {

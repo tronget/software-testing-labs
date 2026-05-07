@@ -15,5 +15,7 @@ public final class TestData {
     public static final String THEME = "General";
 
     public static final String SEARCH_WORD = "test";
+    public static final String SEARCH_WORD_TRANSLATED = "тест";
+
     public static final String PATTERN = "t?st";
 }

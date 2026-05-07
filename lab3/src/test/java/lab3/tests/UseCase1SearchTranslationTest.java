@@ -16,6 +16,6 @@ public class UseCase1SearchTranslationTest extends BaseTest {
         home.searchFor(TestData.SEARCH_WORD);
 
         SearchResultsPage results = new SearchResultsPage(driver);
-        Assertions.assertTrue(results.hasResults() || results.hasSuggestionsOrEmptyMessage(), "Search results or suggestions should be visible");
+        Assertions.assertTrue(results.hasTranslate() || results.hasSuggestionsOrEmptyMessage(), "Search results or suggestions should be visible");
     }
 }

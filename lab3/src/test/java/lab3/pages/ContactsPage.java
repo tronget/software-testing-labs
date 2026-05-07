@@ -9,6 +9,6 @@ public class ContactsPage extends BasePage {
     }
 
     public boolean hasContactInfo() {
-        return isVisible("//*[contains(normalize-space(.),'@') or contains(normalize-space(.),'Contact') or contains(normalize-space(.),'контакт')]");
+        return isVisible("//*[contains(normalize-space(.),'pom@aha.ru')]");
     }
 }

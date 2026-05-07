@@ -11,7 +11,7 @@ public abstract class BaseTest {
 
     @BeforeEach
     public void setUp() {
-        driver = new DriverFactory().create();
+        driver = new lab3.core.DriverFactory().create();
     }
 
     @AfterEach
@@ -25,6 +25,6 @@ public abstract class BaseTest {
         HomePage home = new HomePage(driver);
         home.open();
         LoginPage loginPage = home.goToLogin();
-        loginPage.login(TestData.LOGIN, TestData.PASSWORD);
+        loginPage.login(lab3.core.TestData.LOGIN, lab3.core.TestData.PASSWORD);
     }
 }
