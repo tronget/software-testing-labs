@@ -22,17 +22,9 @@ public abstract class BaseTest {
     }
 
     protected void login() {
-        try{
-            HomePage home = new HomePage(driver);
-            home.open();
-            LoginPage loginPage = home.goToLogin();
-            loginPage.login(lab3.core.TestData.LOGIN, lab3.core.TestData.PASSWORD);
-            if (driver.getWindowHandles().size() > 1) {
-                driver.switchTo().window(driver.getWindowHandles().stream().reduce((first, second) -> second).orElse(driver.getWindowHandle()));
-            }
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-
+        HomePage home = new HomePage(driver);
+        home.open();
+        LoginPage loginPage = home.goToLogin();
+        loginPage.login(TestData.LOGIN, TestData.PASSWORD);
     }
 }

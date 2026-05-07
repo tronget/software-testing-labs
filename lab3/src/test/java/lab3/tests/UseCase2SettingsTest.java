@@ -14,7 +14,6 @@ public class UseCase2SettingsTest extends BaseTest {
         settings.toggleFirstCheckbox();
         settings.save();
 
-        Assertions.assertTrue(settings.isSaved() || settings.hasSaveButton(),
-            "Settings should be saved or remain on settings page");
+        Assertions.assertTrue(settings.isSaved(), "Settings should be saved or remain on settings page");
     }
 }

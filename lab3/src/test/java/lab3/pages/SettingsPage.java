@@ -13,18 +13,14 @@ public class SettingsPage extends BasePage {
     }
 
     public void toggleFirstCheckbox() {
-        click("(//input[@type='checkbox'])[1]");
+        clickByJs("(//input[@type='checkbox'])[1]");
     }
 
     public void save() {
-        click("//button[contains(normalize-space(.),'Save') or contains(normalize-space(.),'Сохран')]");
+        clickByJs("//input[@type='submit' and (contains(@value,'Save') or contains(@value,'Сохранить'))]");
     }
 
     public boolean isSaved() {
         return isVisible("//*[contains(normalize-space(.),'saved') or contains(normalize-space(.),'Сохранено')]");
-    }
-
-    public boolean hasSaveButton() {
-        return isVisible("//button[contains(normalize-space(.),'Save') or contains(normalize-space(.),'Сохран')]");
     }
 }

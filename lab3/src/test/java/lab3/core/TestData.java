@@ -3,8 +3,8 @@ package lab3.core;
 public final class TestData {
     private TestData() {}
 
-    public static final String LOGIN = System.getProperty("userLogin", "Moysha");
-    public static final String PASSWORD = System.getProperty("userPassword", ".2rCkiND2@qdFAy");
+    public static final String LOGIN = "trololoshka";
+    public static final String PASSWORD = "ebloid1337";
 
     public static final String TOPIC_TITLE = "TPOLR3 Test Topic";
     public static final String TOPIC_BODY = "TPOLR3 test message. Please ignore.";

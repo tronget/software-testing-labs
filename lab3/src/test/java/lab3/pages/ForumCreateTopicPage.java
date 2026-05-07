@@ -10,7 +10,7 @@ public class ForumCreateTopicPage extends BasePage {
 
     public void fillTopic(String title, String body) {
         type("//td[contains(normalize-space(.),'Topic') or contains(normalize-space(.),'Тема')]/following-sibling::td//input", title);
-        type("//textarea", body);
+        type("//div[@id='textBox']", body);
     }
 
     public void toggleNotifyByEmail() {
@@ -22,11 +22,11 @@ public class ForumCreateTopicPage extends BasePage {
     }
 
     public void preview() {
-        click("//button[contains(normalize-space(.),'Preview') or contains(normalize-space(.),'Предварительный')]");
+        click("//input[@type='submit' and (contains(@value,'Preview') or contains(@value,'Предварительный'))]");
     }
 
     public void save() {
-        click("//button[contains(normalize-space(.),'Save') or contains(normalize-space(.),'Сохранить')]");
+        click("//input[@type='submit' and (contains(@value,'Save') or contains(@value,'Сохранить соо'))]");
     }
 
     public boolean isPreviewVisible(String snippet) {

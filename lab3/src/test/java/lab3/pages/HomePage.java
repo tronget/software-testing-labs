@@ -21,6 +21,11 @@ public class HomePage extends BasePage {
 
     public void selectPopularEnglishRussian() {
         clickByJs("//a[contains(text(),'Англо‑русский')] | //a[contains(text(),'English‑Russian')]");
+                                                                                                                                                                                                                                                                try {
+                                                                                                                                                                                                                                                                    Thread.sleep(500);
+                                                                                                                                                                                                                                                                } catch (InterruptedException e) {
+                                                                                                                                                                                                                                                                    throw new RuntimeException(e);
+                                                                                                                                                                                                                                                                }
     }
 
     public void searchFor(String query) {
