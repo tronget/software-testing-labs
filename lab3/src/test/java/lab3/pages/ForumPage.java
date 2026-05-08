@@ -13,12 +13,14 @@ public class ForumPage extends BasePage {
     }
 
     public ForumCreateTopicPage goToCreateTopic() {
-        click("//a[contains(normalize-space(.),'Create topic') or contains(normalize-space(.),'New topic') or contains(normalize-space(.),'Создать тему')]");
+        clickByJs("//a[contains(normalize-space(.),'New thread') or contains(normalize-space(.),'New topic') or contains(normalize-space(.),'Создать тему')]");
         return new ForumCreateTopicPage(driver);
     }
 
     public ForumTopicPage openLatestTopic() {
-        click("(//a[contains(@href,'topic') or contains(@href,'m.exe?a=')])[1]");
+        String topicLink = "(//tr[.//a[contains(@href,'UserName') or contains(@href,'a=116') or contains(@href,'user')]]" +
+                "//a[not(contains(@href,'UserName')) and not(contains(@href,'a=116')) and not(contains(@href,'user'))])[1]";
+        clickByJs(topicLink);
         return new ForumTopicPage(driver);
     }
 }

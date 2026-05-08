@@ -17,7 +17,7 @@ public class ReadingRoomPage extends BasePage {
     }
 
     public void openAuthor() {
-        click("//a[contains(text(),'Евгений Замятин')]");
+        clickByJs("//a[contains(text(),'Евгений Замятин')]");
     }
 
     public boolean hasMaterial() {
@@ -25,7 +25,7 @@ public class ReadingRoomPage extends BasePage {
     }
 
     public void openMaterial() {
-        click("//a[contains(text(),'Мы')]");
+        clickByJs("//a[contains(text(),'Мы')]");
     }
 
     public boolean hasChangeLanguageButton() {
@@ -33,7 +33,7 @@ public class ReadingRoomPage extends BasePage {
     }
 
     public void changeLanguage() {
-        click("//a[contains(text(),'⇄')]");
+        clickByJs("//a[contains(text(),'⇄')]");
     }
 
     public boolean hasSpecificRussianLine() {

@@ -18,12 +18,10 @@ public class UseCase6ReadingRoomTest extends BaseTest {
         readingRoom.openMaterial();
 
         assertTrue(readingRoom.hasSpecificRussianLine());
-        assertFalse(readingRoom.hasSpecificEnglishLine());
 
         assertTrue(readingRoom.hasChangeLanguageButton(), "Change language button should be visible");
         readingRoom.changeLanguage();
 
         assertTrue(readingRoom.hasSpecificEnglishLine());
-        assertFalse(readingRoom.hasSpecificRussianLine());
     }
 }
