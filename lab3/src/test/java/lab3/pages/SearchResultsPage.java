@@ -16,6 +16,6 @@ public class SearchResultsPage extends BasePage {
     }
 
     public boolean hasSuggestionsOrEmptyMessage() {
-        return isVisible("//*[contains(normalize-space(.),'Nothing found') or contains(normalize-space(.),'not found') or contains(normalize-space(.),'Ничего не найдено') or contains(normalize-space(.),'Предлагается')]");
+        return  isVisible("//*[contains(normalize-space(.),'Nothing found') or contains(normalize-space(.),'not found') or contains(normalize-space(.),'Ничего не найдено') or contains(normalize-space(.),'Предлагается')]");
     }
 }

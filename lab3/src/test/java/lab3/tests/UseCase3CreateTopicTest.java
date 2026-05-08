@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 public class UseCase3CreateTopicTest extends BaseTest {
     @Test
-    public void createForumTopic() {
+    public void createForumTopic() throws InterruptedException {
         login();
         ForumPage forum = new ForumPage(driver);
         forum.openEnglishForum();

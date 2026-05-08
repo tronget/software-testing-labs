@@ -16,12 +16,31 @@ public class UserProfilePage extends BasePage {
         return isVisible("//*[contains(normalize-space(.),'Forum participation') or contains(normalize-space(.),'Участие в форумах')]");
     }
 
+    private String forumParticipationTableXpath() {
+        return "(//*[contains(normalize-space(.),'Forum participation') or contains(normalize-space(.),'Участие в форумах')]/following::table[1])";
+    }
+
+    private String questionsHeaderXpath() {
+        return forumParticipationTableXpath() + "//tr[1]//th[normalize-space(.)='Вопросы' or normalize-space(.)='Questions']";
+    }
+
+    private String questionsCellXpath() {
+        String byHeader = forumParticipationTableXpath()
+                + "//tr[2]/td[position()=count(" + questionsHeaderXpath() + "/preceding-sibling::th)+1]";
+        String fallback = "//tbody/tr[2]/td[3]";
+        return isVisible(questionsHeaderXpath()) ? byHeader : fallback;
+    }
+
     public void openQuestionsHistory() {
-        clickByJs("//tbody/tr[2]/td[3]//a");
+        clickByJs(questionsCellXpath() + "//a");
     }
 
     public boolean hasQuestionsHistory() {
         return isVisible("//table//tr");
+    }
+
+    public boolean hasQuestionsLink() {
+        return isVisible(questionsCellXpath() + "//a");
     }
 
     public void openUserProfile(String userName) {

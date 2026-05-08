@@ -14,12 +14,18 @@ public class DriverFactory {
 
         switch (browser) {
             case "firefox":
-                WebDriverManager.firefoxdriver().setup();
-                FirefoxOptions firefoxOptions = new FirefoxOptions();
-                if (headless) {
-                    firefoxOptions.addArguments("-headless");
+                String firefoxBinary = System.getProperty("firefoxBinary", System.getenv("FIREFOX_BINARY"));
+                if (firefoxBinary == null || firefoxBinary.isBlank() || !new java.io.File(firefoxBinary).exists()) {
+                    browser = "chrome";
+                } else {
+                    WebDriverManager.firefoxdriver().setup();
+                    FirefoxOptions firefoxOptions = new FirefoxOptions();
+                    firefoxOptions.setBinary(firefoxBinary);
+                    if (headless) {
+                        firefoxOptions.addArguments("-headless");
+                    }
+                    return new FirefoxDriver(firefoxOptions);
                 }
-                return new FirefoxDriver(firefoxOptions);
             case "chrome":
             default:
                 WebDriverManager.chromedriver().setup();

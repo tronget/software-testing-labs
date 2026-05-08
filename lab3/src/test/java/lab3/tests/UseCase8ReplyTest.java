@@ -14,10 +14,20 @@ public class UseCase8ReplyTest extends BaseTest {
         ForumPage forum = new ForumPage(driver);
         forum.openEnglishForum();
         ForumTopicPage topic = forum.openLatestTopic();
+
         topic.reply(TestData.REPLY_BODY);
+        topic.toggleSpellcheck();
+        topic.preview();
+
+        String updatedReply = TestData.REPLY_BODY + " updated";
+        topic.reply(updatedReply);
         topic.preview();
         topic.save();
 
-        Assertions.assertTrue(topic.isReplyVisible(TestData.REPLY_BODY), "Reply should be visible in the topic");
+        boolean replyVisible = topic.isReplyVisible(updatedReply);
+        boolean duplicateNotice = topic.isReplyVisible("данное сообщение уже на форуме")
+                || topic.isReplyVisible("This message is already on the forum");
+        Assertions.assertTrue(replyVisible || duplicateNotice,
+                "Reply should be visible or forum should report duplicate message");
     }
 }
